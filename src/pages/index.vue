@@ -20,9 +20,9 @@
   left: 20px;
 }
 .layout-nav {
-  width: 420px;
   margin: 0 auto;
   margin-right: 20px;
+  width: 420px;
 }
 </style>
 <template>
@@ -32,34 +32,34 @@
                 <Menu mode="horizontal" theme="dark" active-name="1">
                     <div class="layout-logo"></div>
                     <div class="layout-nav">
-                        <MenuItem name="1">
-                            <Icon type="ios-navigate"></Icon>
-                            Item 1
-                        </MenuItem>
-                        <MenuItem name="2">
-                            <Icon type="ios-keypad"></Icon>
-                            Item 2
-                        </MenuItem>
-                        <MenuItem name="3">
-                            <Icon type="ios-analytics"></Icon>
-                            Item 3
-                        </MenuItem>
-                        <MenuItem name="4">
-                            <Icon type="ios-paper"></Icon>
-                            Item 4
-                        </MenuItem>
+                      <MenuItem name="1">
+                        <Icon type="ios-navigate"></Icon>
+                        Item 1
+                      </MenuItem>
+                      <MenuItem name="2">
+                        <Icon type="ios-keypad"></Icon>
+                        Item 2
+                      </MenuItem>
+                      <MenuItem name="3">
+                        <Icon type="ios-analytics"></Icon>
+                        Item 3
+                      </MenuItem>
+                      <MenuItem name="4">
+                        <Icon type="ios-paper"></Icon>
+                        Item 4
+                      </MenuItem>
                     </div>
                 </Menu>
             </Header>
             <Layout>
                 <Sider hide-trigger :style="{background: '#fff'}">
-                    <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
+                    <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']" @on-select="changeActive">
                         <Submenu name="1">
                             <template slot="title">
                                 <Icon type="ios-navigate"></Icon>
                                 Index
                             </template>
-                            <MenuItem name="1-1">showTest</MenuItem>
+                            <MenuItem name="/test">showTest</MenuItem>
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
@@ -93,8 +93,21 @@
         </Layout>
     </div>
 </template>
+
 <script>
 export default {
-  
+  name: 'index',
+  data () {
+    return {
+      //
+    }
+  },
+  methods: {
+    changeActive (name) {
+      // console.log(name);
+      // 获取点击事件的string
+      this.$router.push(name)
+    }
+  }
 }
 </script>

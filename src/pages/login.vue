@@ -34,8 +34,8 @@ export default {
         {title: '学生登录', code: '_students'}
       ],
       formInline: {
-        u_account: '201511033423',
-        u_password: '022130',
+        u_account: '201511033430',
+        u_password: '033430',
         u_type: '_students'
       },
       ruleInline: {
@@ -69,7 +69,7 @@ export default {
         this.$router.push({
           name: 'IndexHome'
         })
-      }).catch(e=> {
+      }).catch(e => {
         console.log(e)
       })
     }
